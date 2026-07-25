@@ -94,17 +94,18 @@ while True:
 
 # 2. VIEW BOOKS:
     elif choice == '2':
-        if len(books) == 0:
+        if not books:
             print('No books found')
         else:
+            print(f"\nTotal Books: {len(books)}")
             print("\nBooks List:\n")
             for book in books:
                 print("------------------------------------")
-                print(f'Book ID      :{book["id"]}')
-                print(f'Title        :{book["title"]}')
-                print(f'Author       :{book["author"]}')
-                print(f'Quantity     :{book["quantity"]}')
-
+                print(f'Book ID      : {book["id"]}')
+                print(f'Title        : {book["title"]}')
+                print(f'Author       : {book["author"]}')
+                print(f'Quantity     : {book["quantity"]}')
+                print("------------------------------------")
 
 # 3. SEARCH BOOK:
     elif choice == '3':

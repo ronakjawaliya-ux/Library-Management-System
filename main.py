@@ -168,11 +168,75 @@ while True:
                 else:
                     book["quantity"] -= 1
                     save_books()
-                    print(f"{book["title"]} has been issued successfully")
+                    print(f'Book {book["title"]} has been issued successfully')
                     break
 
         if not found:
             print('\nBook not found')
+
+
+# 5. RETURN BOOK:
+    elif choice == "5":
+
+        if not books:
+            print('No books found')
+            continue
+
+        try:
+            return_book_id = int(input("Enter Book ID to Return: "))
+        except ValueError:
+            print('Book ID must be an integer')
+            continue
+
+        found = False
+
+        for book in books:
+            if book["id"] == return_book_id:
+                print('\nBook Found')
+                print('------------------------------------')
+                print(f'Book ID      : {book["id"]}')
+                print(f'Title        : {book["title"]}')
+                print(f'Author       : {book["author"]}')
+                print(f'Quantity     : {book["quantity"]}')
+                print("-------------------------------------")
+                found = True
+
+                book["quantity"] += 1
+                save_books()
+                print(f'Book {book["title"]} has been returned successfully')
+                break
+
+        if not found:
+            print('\nBook not found')
+
+
+# 6. DELETE BOOK:
+    elif choice == "6":
+        if not books:
+            print('No books found')
+            continue
+
+        try:
+            delete_book_id = int(input("Enter Book ID to delete: "))
+        except ValueError:
+            print('Book ID must be an integer')
+            continue
+
+        found = False
+
+        for book in books:
+            if book["id"] == delete_book_id:
+                books.remove(book)
+                print(f'Book {book["title"]} deleted successfully!')
+                save_books()
+                found = True
+                break
+
+        if not found:
+            print("Book not found.")
+
+
+
 
 
 

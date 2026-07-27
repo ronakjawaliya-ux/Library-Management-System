@@ -142,7 +142,7 @@ while True:
             continue
 
         try:
-           search_id = int(input("Enter Book ID to Search: "))
+           issue_book_id = int(input("Enter Book ID to Search: "))
         except ValueError:
             print('Book ID must be an integer')
             continue
@@ -150,7 +150,7 @@ while True:
         found = False
 
         for book in books:
-            if book["id"] == search_id:
+            if book["id"] == issue_book_id:
                 print('\nBook Found')
                 print('------------------------------------')
                 print(f'Book ID      : {book["id"]}')
@@ -159,19 +159,23 @@ while True:
                 print(f'Quantity     : {book["quantity"]}')
                 print("-------------------------------------")
                 found = True
-                break
+
+                if book["quantity"] == 0:
+                    print("Book is Unavailable")
+                    print("All copies of this book have been issued.")
+                    break
+
+                else:
+                    book["quantity"] -= 1
+                    save_books()
+                    print(f"{book["title"]} has been issued successfully")
+                    break
 
         if not found:
             print('\nBook not found')
-            continue
 
-        if quantity == 0:
-            print("Book is Unavailable")
-            print("Quantity must be greater than zero")
-        else:
-            quantity -= 1
-            save_books()
-            print(f"Book ID has been issued successfully")
+
+
 
 
 

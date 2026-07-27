@@ -110,6 +110,165 @@ while True:
 # 3. SEARCH BOOK:
     elif choice == '3':
 
+        if not books:
+            print('No books found')
+            continue
+
+        search_title = input("Enter Book Title to Search: ").strip().lower()
+
+        found = False
+
+        for book in books:
+            if search_title in book["title"].lower():
+                print("\nBook Found")
+                print("-------------------------------------")
+                print(f'Book ID      : {book["id"]}')
+                print(f'Title        : {book["title"]}')
+                print(f'Author       : {book["author"]}')
+                print(f'Quantity     : {book["quantity"]}')
+                print("-------------------------------------")
+                found = True
+                break
+
+        if not found:
+            print('Book not found')
+
+
+# 4. ISSUE BOOK:
+    elif choice == "4":
+
+        if not books:
+            print('No books found')
+            continue
+
+        try:
+           issue_book_id = int(input("Enter Book ID to Search: "))
+        except ValueError:
+            print('Book ID must be an integer')
+            continue
+
+        found = False
+
+        for book in books:
+            if book["id"] == issue_book_id:
+                print('\nBook Found')
+                print('------------------------------------')
+                print(f'Book ID      : {book["id"]}')
+                print(f'Title        : {book["title"]}')
+                print(f'Author       : {book["author"]}')
+                print(f'Quantity     : {book["quantity"]}')
+                print("-------------------------------------")
+                found = True
+
+                if book["quantity"] == 0:
+                    print("Book is Unavailable")
+                    print("All copies of this book have been issued.")
+                    break
+
+                else:
+                    book["quantity"] -= 1
+                    save_books()
+                    print(f'Book {book["title"]} has been issued successfully')
+                    break
+
+        if not found:
+            print('\nBook not found')
+
+
+# 5. RETURN BOOK:
+    elif choice == "5":
+
+        if not books:
+            print('No books found')
+            continue
+
+        try:
+            return_book_id = int(input("Enter Book ID to Return: "))
+        except ValueError:
+            print('Book ID must be an integer')
+            continue
+
+        found = False
+
+        for book in books:
+            if book["id"] == return_book_id:
+                print('\nBook Found')
+                print('------------------------------------')
+                print(f'Book ID      : {book["id"]}')
+                print(f'Title        : {book["title"]}')
+                print(f'Author       : {book["author"]}')
+                print(f'Quantity     : {book["quantity"]}')
+                print("-------------------------------------")
+                found = True
+
+                book["quantity"] += 1
+                save_books()
+                print(f'Book {book["title"]} has been returned successfully')
+                break
+
+        if not found:
+            print('\nBook not found')
+
+
+# 6. DELETE BOOK:
+    elif choice == "6":
+        if not books:
+            print('No books found')
+            continue
+
+        try:
+            delete_book_id = int(input("Enter Book ID to delete: "))
+        except ValueError:
+            print('Book ID must be an integer')
+            continue
+
+        found = False
+
+        for book in books:
+            if book["id"] == delete_book_id:
+                books.remove(book)
+                print(f'Book {book["title"]} deleted successfully!')
+                save_books()
+                found = True
+                break
+
+        if not found:
+            print("Book not found.")
+
+# 7. TOTAL BOOKS:
+    elif choice == "7":
+
+        total_copies = 0
+
+        for book in books:
+
+            total_copies += book["quantity"]
+
+        print("\n========== Library Statistics ==========\n")
+        print("Total Book Copies: ", total_copies)
+        print("Total Book Titles: ", len(books))
+        print("\n========================================\n")
+
+
+ # 8. EXIT
+    elif choice == "8":
+        print("Thank you for using Library Management System!")
+        break
+
+    else:
+        print("This option will be added later.")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

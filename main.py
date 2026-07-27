@@ -235,6 +235,8 @@ while True:
         if not found:
             print("Book not found.")
 
+# 7. TOTAL BOOKS:
+    elif choice == "7":
 
 
 

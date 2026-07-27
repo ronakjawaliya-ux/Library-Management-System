@@ -110,6 +110,29 @@ while True:
 # 3. SEARCH BOOK:
     elif choice == '3':
 
+        if not books:
+            print('No books found')
+            continue
+
+        search_title = input("Enter Book Title to Search: ").strip().lower()
+
+        found = False
+
+        for book in books:
+            if search_title in book["title"].lower():
+                print("\nBook Found")
+                print("-------------------------------------")
+                print(f'Book ID      : {book["id"]}')
+                print(f'Title        : {book["title"]}')
+                print(f'Author       : {book["author"]}')
+                print(f'Quantity     : {book["quantity"]}')
+                print("-------------------------------------")
+                found = True
+                break
+
+        if not found:
+            print('Book not found')
+
 
 
 

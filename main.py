@@ -238,6 +238,28 @@ while True:
 # 7. TOTAL BOOKS:
     elif choice == "7":
 
+        total_copies = 0
+
+        for book in books:
+
+            total_copies += book["quantity"]
+
+        print("\n========== Library Statistics ==========\n")
+        print("Total Book Copies: ", total_copies)
+        print("Total Book Titles: ", len(books))
+        print("\n========================================\n")
+
+
+ # 8. EXIT
+    elif choice == "8":
+        print("Thank you for using Library Management System!")
+        break
+
+    else:
+        print("This option will be added later.")
+
+
+
 
 
 

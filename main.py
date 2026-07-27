@@ -134,5 +134,49 @@ while True:
             print('Book not found')
 
 
+# 4. ISSUE BOOK:
+    elif choice == "4":
+
+        if not books:
+            print('No books found')
+            continue
+
+        try:
+           search_id = int(input("Enter Book ID to Search: "))
+        except ValueError:
+            print('Book ID must be an integer')
+            continue
+
+        found = False
+
+        for book in books:
+            if book["id"] == search_id:
+                print('\nBook Found')
+                print('------------------------------------')
+                print(f'Book ID      : {book["id"]}')
+                print(f'Title        : {book["title"]}')
+                print(f'Author       : {book["author"]}')
+                print(f'Quantity     : {book["quantity"]}')
+                print("-------------------------------------")
+                found = True
+                break
+
+        if not found:
+            print('\nBook not found')
+            continue
+
+        if quantity == 0:
+            print("Book is Unavailable")
+            print("Quantity must be greater than zero")
+        else:
+            quantity -= 1
+            save_books()
+            print(f"Book ID has been issued successfully")
+
+
+
+
+
+
 
 

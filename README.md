@@ -1,6 +1,19 @@
 # 📚 Library Management System (Python)
 
-A simple **Library Management System** built using **Python** that allows users to manage books through a command-line interface (CLI). Book records are stored permanently using **JSON**, ensuring data remains available even after the program is closed.
+A simple yet powerful **Library Management System** built using **Python** that allows users to manage books through a command-line interface (CLI). The application supports complete book management operations including adding, updating, searching, issuing, returning, and deleting books. All data is stored permanently using **JSON**, ensuring records remain available even after the program is closed.
+
+---
+
+## 🌟 Project Highlights
+
+- 🚀 Built entirely using Python
+- 💻 Command-Line Interface (CLI)
+- 💾 JSON-based persistent data storage
+- 📚 Complete Book Management System
+- 🔄 Book Issue & Return functionality
+- ✅ Input Validation
+- ⚠️ Exception Handling using `try-except`
+- 📂 Clean and beginner-friendly code structure
 
 ---
 
@@ -10,10 +23,13 @@ A simple **Library Management System** built using **Python** that allows users 
 
 - ✅ Add New Book
 - ✅ View All Books
-- ✅ Search Book by ID
+- ✅ Search Book by Title
 - ✅ Update Book Details
+- ✅ Issue Book
+- ✅ Return Book
 - ✅ Delete Book Record
-- ✅ Display Total Number of Books
+- ✅ Display Total Book Titles
+- ✅ Display Total Book Copies
 
 ### 💾 Data Management
 
@@ -27,7 +43,7 @@ A simple **Library Management System** built using **Python** that allows users 
 - ✅ Title Validation
 - ✅ Author Validation
 - ✅ Quantity Validation
-- ✅ Exception Handling using `try-except`
+- ✅ Input Validation using `try-except`
 - ✅ Handles Missing or Corrupted JSON Files
 
 ---
@@ -85,9 +101,11 @@ python main.py
 2. View Books
 3. Search Book
 4. Update Book
-5. Delete Book
-6. Total Books
-7. Exit
+5. Issue Book
+6. Return Book
+7. Delete Book
+8. Total Books
+9. Exit
 ```
 
 ---
@@ -104,37 +122,66 @@ python main.py
   - Author
   - Quantity
 
+---
+
 ### 📚 View Books
 
-- Displays all books available in the library.
+- Displays every book available in the library.
 - Shows:
   - Book ID
   - Title
   - Author
   - Quantity
 
+---
+
 ### 🔍 Search Book
 
-- Search a book using its Book ID.
+- Searches books by title.
+- Case-insensitive search.
 - Displays complete book information.
+
+---
 
 ### ✏️ Update Book
 
-- Update existing book information.
+- Updates an existing book.
 - Editable fields:
   - Title
   - Author
   - Quantity
-- Saves updated information automatically.
+- Saves changes automatically.
+
+---
+
+### 📖 Issue Book
+
+- Issues one copy of the selected book.
+- Automatically decreases the available quantity.
+- Prevents issuing books that are out of stock.
+
+---
+
+### 📥 Return Book
+
+- Returns one copy of a selected book.
+- Automatically increases the available quantity.
+
+---
 
 ### 🗑️ Delete Book
 
-- Deletes a book using its Book ID.
-- Automatically updates the JSON file.
+- Deletes a selected book permanently.
+- Updates the JSON file automatically.
+
+---
 
 ### 📊 Total Books
 
-Displays the total number of books currently stored.
+Displays:
+
+- Total Book Titles
+- Total Book Copies
 
 ---
 
@@ -144,17 +191,20 @@ The application validates:
 
 - Book ID
 - Duplicate Book IDs
-- Book Title
-- Author Name
-- Book Quantity
+- Empty Book Titles
+- Empty Author Names
+- Invalid Numeric Inputs
+- Invalid Book Quantity
+- Book Availability
+- Book Existence
+- Missing or Corrupted JSON Files
 
 The application prevents:
 
-- Invalid numeric inputs
-- Empty titles
-- Empty author names
-- Negative quantities
 - Duplicate Book IDs
+- Empty fields
+- Invalid quantities
+- Invalid numeric inputs
 - Operations on non-existing books
 
 ---
@@ -174,6 +224,12 @@ The application prevents:
         "title": "Clean Code",
         "author": "Robert C. Martin",
         "quantity": 3
+    },
+    {
+        "id": 103,
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "quantity": 7
     }
 ]
 ```
@@ -183,14 +239,12 @@ The application prevents:
 ## 📷 Sample Output
 
 ```text
-Book Details
+========== Library Statistics ==========
 
------------------------------------
-Book ID   : 101
-Title     : Atomic Habits
-Author    : James Clear
-Quantity  : 5
------------------------------------
+Total Book Titles : 3
+Total Book Copies : 15
+
+========================================
 ```
 
 ---
@@ -204,18 +258,20 @@ Application screenshots are available in the **screenshots/** folder.
 - View Books
 - Search Book
 - Update Book
+- Issue Book
+- Return Book
 - Delete Book
+- Total Books
 
 ---
 
 ## 🎯 Future Improvements
 
-- 📖 Issue Book Feature
-- 📥 Return Book Feature
 - 👤 Member Management
 - 📅 Due Date Tracking
-- 💰 Fine Calculation
+- 💰 Late Fine Calculation
 - 📄 Borrowing History
+- 📤 Export Library Data to CSV
 - 🔐 Login Authentication
 - 🗄️ SQLite/MySQL Database Integration
 - 🖥️ Graphical User Interface (Tkinter)
@@ -236,6 +292,7 @@ This project helped me strengthen my understanding of:
 - Exception Handling (`try-except`)
 - Input Validation
 - Data Persistence
+- Inventory Management Logic
 - Problem-Solving
 - Building Complete CLI Applications
 
@@ -259,4 +316,4 @@ This project helped me strengthen my understanding of:
 
 ## ⭐ Support
 
-If you found this project helpful or interesting, consider giving it a ⭐ on GitHub. It motivates me to keep learning, improve my programming skills, and build more exciting projects.
+If you found this project helpful or interesting, consider giving it a ⭐ on GitHub. It motivates me to continue learning, improve my programming skills, and build more real-world software projects.

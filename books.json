@@ -3,18 +3,12 @@
         "id": 101,
         "title": "Atomic Habits",
         "author": "James Clear",
-        "quantity": 5
+        "quantity": 6
     },
     {
         "id": 102,
         "title": "Clean Code",
         "author": "Robert C. Martin",
         "quantity": 3
-    },
-    {
-        "id": 103,
-        "title": "The Pragmatic Programmer",
-        "author": "Andrew Hunt",
-        "quantity": 4
     }
 ]

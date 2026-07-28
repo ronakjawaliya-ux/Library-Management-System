@@ -1,6 +1,6 @@
 # 📚 Library Management System - Features
 
-This project is a **menu-driven Library Management System** developed using **Python**. It allows users to manage library books efficiently while storing data permanently in a JSON file.
+This project is a **menu-driven Library Management System** developed using **Python**. It enables users to efficiently manage library books through a Command-Line Interface (CLI). All book records are stored permanently in a **JSON** file, ensuring data is retained even after the application is closed.
 
 ---
 
@@ -15,7 +15,8 @@ This project is a **menu-driven Library Management System** developed using **Py
   - Author Name
   - Quantity
 - Prevents duplicate Book IDs.
-- Saves data automatically to `books.json`.
+- Validates all user inputs.
+- Automatically saves data to `books.json`.
 
 ---
 
@@ -27,15 +28,16 @@ This project is a **menu-driven Library Management System** developed using **Py
   - Title
   - Author
   - Quantity
-- Displays the total number of books.
+- Displays the total number of book titles.
 
 ---
 
 ## 🔍 Search Book
 
-- Search for a book using its Book ID.
+- Search books using the **Book Title**.
+- Case-insensitive search.
 - Displays complete book information.
-- Shows an appropriate message if the book is not found.
+- Shows an appropriate message if no matching book is found.
 
 ---
 
@@ -43,26 +45,45 @@ This project is a **menu-driven Library Management System** developed using **Py
 
 - Update existing book information.
 - Editable fields:
-  - Title
-  - Author
+  - Book Title
+  - Author Name
   - Quantity
-- Saves updated information automatically.
+- Automatically saves updated information.
+
+---
+
+## 📖 Issue Book
+
+- Issue a book from the library.
+- Reduces the available quantity by one.
+- Prevents issuing books that are out of stock.
+- Automatically updates the JSON file.
+
+---
+
+## 📥 Return Book
+
+- Return an issued book.
+- Increases the available quantity by one.
+- Automatically updates the JSON file.
 
 ---
 
 ## 🗑️ Delete Book
 
 - Delete a book using its Book ID.
+- Removes the book permanently from the library.
 - Automatically updates the JSON file.
 - Displays a success message after deletion.
 
 ---
 
-## 📊 Total Books
+## 📊 Library Statistics
 
 Displays:
 
-- Total number of books currently stored.
+- Total Book Titles
+- Total Book Copies Available
 
 ---
 
@@ -70,7 +91,7 @@ Displays:
 
 - Permanent data storage using **JSON**.
 - Automatically loads book records when the application starts.
-- Automatically saves every change.
+- Automatically saves every modification.
 - Handles missing or corrupted JSON files gracefully.
 
 ---
@@ -80,10 +101,13 @@ Displays:
 The application validates:
 
 - Book ID must be numeric.
+- Duplicate Book IDs are not allowed.
 - Book Title cannot be empty.
 - Author Name cannot be empty.
-- Quantity must be zero or greater.
-- Duplicate Book IDs are not allowed.
+- Quantity must be a valid integer.
+- Quantity cannot be negative.
+- Book availability before issuing.
+- Book existence before updating, deleting, issuing, or returning.
 
 ---
 
@@ -92,10 +116,13 @@ The application validates:
 The system handles:
 
 - Invalid numeric inputs
-- Missing book records
 - Duplicate Book IDs
-- Empty fields
+- Missing book records
+- Empty book titles
+- Empty author names
+- Invalid quantities
 - Negative quantities
+- Book out of stock
 - Missing JSON file
 - Corrupted JSON file
 
@@ -110,34 +137,38 @@ The system handles:
 - Dictionaries
 - CRUD Operations
 - JSON File Handling
+- File Handling
 - Exception Handling (`try-except`)
 - Input Validation
-- File Handling
+- Search Algorithms
+- Inventory Management Logic
 
 ---
 
 # 🚀 Future Enhancements
 
-- 📖 Book Issue System
-- 📥 Book Return System
-- 👤 Member Management
+- 👤 Member Management System
 - 📅 Due Date Tracking
-- 💰 Fine Calculation
+- 💰 Late Fine Calculation
 - 📄 Borrowing History
-- 🔍 Search by Title or Author
+- 🔐 User Login Authentication
+- 📤 Export Library Records to CSV
+- 📊 Book Availability Reports
 - 🗄️ SQLite/MySQL Database Integration
-- 🖥️ GUI using Tkinter
+- 🖥️ Graphical User Interface (Tkinter)
 - 🌐 Web Version using Flask or Django
 
 ---
 
 # ✅ Project Highlights
 
-- Menu-Driven CLI Application
-- Beginner-Friendly Python Project
-- Persistent JSON Data Storage
-- CRUD Functionality
-- Strong Input Validation
-- Exception Handling
-- Clean and Readable Code
-- Easy to Extend and Maintain
+- 📚 Complete Library Management System
+- 💻 Menu-Driven CLI Application
+- 💾 Persistent JSON Data Storage
+- 🔄 Full CRUD Functionality
+- 📖 Book Issue & Return Management
+- 📊 Library Statistics
+- 🛡️ Strong Input Validation
+- ⚠️ Exception Handling
+- 🧹 Clean & Readable Code
+- 🚀 Beginner-Friendly and Easy to Extend
